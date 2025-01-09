@@ -6,7 +6,7 @@ import React from "react";
 export default function Nav() {
   return (
     <div>
-      <nav className="flex justify-between  p-11">
+      <nav className="flex justify-between  p-4">
         <h2>Adebimpe Favour</h2>
 
         <div className="flex items-center space-x-6">
