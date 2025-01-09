@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 
@@ -27,7 +29,12 @@ export default function Nav() {
           ].map((image, index) => (
             <div key={index}>
               <a href={image.path} target="_blank" rel="noopener noreferrer">
-                <Image src={image.source} alt={image.alt} width={20} height={20} />
+                <Image
+                  src={image.source}
+                  alt={image.alt}
+                  width={20}
+                  height={20}
+                />
               </a>
             </div>
           ))}
