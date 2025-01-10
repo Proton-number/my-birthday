@@ -26,13 +26,6 @@ interface PortableTextImage {
   alt?: string;
 }
 
-interface PortableTextLink {
-  _key: string;
-  _type: "link";
-  href: string;
-  blank?: boolean;
-}
-
 // Mark definition types
 interface LinkMarkDef {
   _key: string;
