@@ -1,11 +1,29 @@
 import sanityClient from "@/Client";
 import { create } from "zustand";
+
 interface Image {
   asset?: {
     _id: string;
     url: string;
   };
   alt: string;
+}
+
+interface PortableTextBlock {
+  _key: string;
+  _type: string;
+  children: Array<{
+    _key: string;
+    _type: string;
+    text: string;
+    marks: string[];
+  }>;
+  markDefs: Array<{
+    _key: string;
+    _type: string;
+    [key: string]: any;
+  }>;
+  style: string; // e.g., "normal", "h1", "blockquote", etc.
 }
 
 interface Reviews {
@@ -15,11 +33,9 @@ interface Reviews {
     current: string;
   };
   mainImage?: Image;
-  body: any;
+  body: PortableTextBlock[];
   _id: string;
 }
-
-
 
 interface SanityStore {
   error: null | string;

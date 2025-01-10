@@ -14,6 +14,7 @@
     "@sanity/client": "^6.24.3",
     "@sanity/icons": "^3.5.7",
     "@sanity/image-url": "1",
+    "@sanity/types": "^3.69.0",
     "@sanity/vision": "3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

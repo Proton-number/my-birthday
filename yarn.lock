@@ -2597,7 +2597,7 @@
   dependencies:
     "@sanity/client" "^6.24.1"
 
-"@sanity/types@3.69.0":
+"@sanity/types@3.69.0", "@sanity/types@^3.69.0":
   version "3.69.0"
   resolved "https://registry.yarnpkg.com/@sanity/types/-/types-3.69.0.tgz#3e1f29779b76cf6b3306f6c9576667b9aa7b9c5b"
   integrity sha512-LePixWL1co4dxYEtxz6zWYuM7oilAsVhn+FHN9YvBzwg1oBDuMLh6rQWW4ywYghs4J9Xvaq9zv//frXdHUaiTw==
