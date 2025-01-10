@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { useEffect } from "react";
 import { PortableText } from "@portabletext/react";
 
-export default function yearReview() {
+export default function Page() {
   const { yearId } = useParams();
   const { singleReview, fetchSingleReview, error } = sanityStore();
 

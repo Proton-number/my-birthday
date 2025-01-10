@@ -8,23 +8,63 @@ interface Image {
   };
   alt: string;
 }
+interface PortableTextSpan {
+  _key: string;
+  _type: "span";
+  text: string;
+  marks?: string[];
+}
 
+interface PortableTextImage {
+  _key: string;
+  _type: "image";
+  asset: {
+    _ref: string;
+    _type: "reference";
+  };
+  caption?: string;
+  alt?: string;
+}
+
+interface PortableTextLink {
+  _key: string;
+  _type: "link";
+  href: string;
+  blank?: boolean;
+}
+
+// Mark definition types
+interface LinkMarkDef {
+  _key: string;
+  _type: "link";
+  href: string;
+  blank?: boolean;
+}
+
+interface InternalLinkMarkDef {
+  _key: string;
+  _type: "internalLink";
+  reference: {
+    _ref: string;
+    _type: "reference";
+  };
+}
+
+type MarkDef = LinkMarkDef | InternalLinkMarkDef;
+
+// Block types
 interface PortableTextBlock {
   _key: string;
-  _type: string;
-  children: Array<{
-    _key: string;
-    _type: string;
-    text: string;
-    marks: string[];
-  }>;
-  markDefs: Array<{
-    _key: string;
-    _type: string;
-    [key: string]: any;
-  }>;
-  style: string; // e.g., "normal", "h1", "blockquote", etc.
+  _type: "block";
+  children: Array<PortableTextSpan>;
+  markDefs: MarkDef[];
+  style: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote" | "code";
+  listItem?: "bullet" | "number";
+  level?: number;
 }
+
+// Main content types
+type PortableTextContent = PortableTextBlock | PortableTextImage;
 
 interface Reviews {
   title: string;
@@ -33,7 +73,7 @@ interface Reviews {
     current: string;
   };
   mainImage?: Image;
-  body: PortableTextBlock[];
+  body: PortableTextContent[];
   _id: string;
 }
 
