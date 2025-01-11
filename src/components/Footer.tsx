@@ -14,7 +14,7 @@ function Footer() {
     updateFormattedDate(); // Update immediately
     const timer = setInterval(updateFormattedDate, 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [updateFormattedDate]);
 
   return (
     <footer className=" min-h-screen py-32 px-14 ">
