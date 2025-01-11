@@ -30,11 +30,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="relative bg-blue-50" style={{ zIndex: 2 }}>
+        <div className="relative bg-sky-400" style={{ zIndex: 2 }}>
           <Nav />
           {children}
         </div>
-        <div className="dark:bg-neutral-900  items-center justify-center flex sticky bottom-0 z-0">
+        <div className=" dark:bg-neutral-900  sticky bottom-0 z-0">
           <Footer />
         </div>
       </body>

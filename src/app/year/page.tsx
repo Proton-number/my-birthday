@@ -1,9 +1,19 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { sanityStore } from "@/Store/sanityStore";
 import Link from "next/link";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 export default function Years() {
   const { reviews, fetchReviews } = sanityStore();
@@ -24,12 +34,25 @@ export default function Years() {
       <Card className="p-5 bg-transparent w-[350px]">
         <p>This will show the birthdays...</p>
         {reviews?.map((review) => (
-          <Link
-            key={review?.slug?.current}
-            href={`/year/${review?.slug?.current}`}
-          >
-            <div>{review.title}</div>
-          </Link>
+          <React.Fragment key={review?.slug?.current}>
+            <Dialog>
+              <DialogTrigger asChild>
+                <div>{review.title}</div>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>{review.title}</DialogTitle>
+                  <DialogDescription>
+                    Make changes to your profile here. Click save when you're
+                    done.
+                  </DialogDescription>
+                </DialogHeader>
+                <Link href={`/year/${review?.slug?.current}`}>
+                  <Button>Review</Button>
+                </Link>
+              </DialogContent>
+            </Dialog>
+          </React.Fragment>
         ))}
       </Card>
     </div>
