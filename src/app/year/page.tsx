@@ -31,7 +31,7 @@ export default function Years() {
   return (
     <div className="min-h-screen  flex justify-center items-center">
       <Card className="p-5 bg-transparent w-[350px]">
-        <p>This will show the birthdays...</p>
+        <p>days</p>
         {reviews?.map((review) => (
           <React.Fragment key={review?.slug?.current}>
             <Dialog>
@@ -42,8 +42,7 @@ export default function Years() {
                 <DialogHeader>
                   <DialogTitle>{review.title}</DialogTitle>
                   <DialogDescription>
-                    Make changes to your profile here. Click save when you're
-                    done.
+                nothing
                   </DialogDescription>
                 </DialogHeader>
                 <Link href={`/year/${review?.slug?.current}`}>
