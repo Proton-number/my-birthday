@@ -103,7 +103,7 @@ export const sanityStore = create<SanityStore>((set) => ({
         set({ reviews: [], error: "No projects found" });
         return;
       } else {
-        console.log(" noPRojects");
+        console.log(" no Projects");
       }
       set({ reviews: response, error: null });
     } catch (error) {
