@@ -17,7 +17,7 @@ function Footer() {
   }, [updateFormattedDate]);
 
   return (
-    <footer className=" min-h-screen py-32 px-14 ">
+    <footer className=" min-h-screen py-32 px-14 bg-[#e3e0f3] ">
       <div className="container mx-auto ">
         <div className=" space-y-10">
           <div>
