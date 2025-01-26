@@ -82,7 +82,7 @@ export const sanityStore = create<SanityStore>((set) => ({
   reviews: null,
   singleReview: null,
   fetchReviews: async () => {
-    const REVIEW_QUERY = `*[_type == "post"] | order(_createdAt asc) [0...4]{
+    const REVIEW_QUERY = `*[_type == "post"] | order(_createdAt asc) {
             title, 
             description,  
             slug, 
@@ -98,13 +98,6 @@ export const sanityStore = create<SanityStore>((set) => ({
         }`;
     try {
       const response = await sanityClient.fetch<Array<Reviews>>(REVIEW_QUERY);
-      if (!response?.length) {
-        console.log("PRojects");
-        set({ reviews: [], error: "No projects found" });
-        return;
-      } else {
-        console.log(" no Projects");
-      }
       set({ reviews: response, error: null });
     } catch (error) {
       console.error("Error fetching projects:", error);

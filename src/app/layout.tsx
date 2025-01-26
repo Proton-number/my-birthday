@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="relative bg-[#e3e0f3]" style={{ zIndex: 2 }}>
+        <div className="relative bg-[#f1e6e0]" style={{ zIndex: 2 }}>
           <Nav />
           {children}
         </div>
