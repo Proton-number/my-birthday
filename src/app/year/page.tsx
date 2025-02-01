@@ -142,7 +142,7 @@ function Years() {
                       <DialogTitle className="text-2xl font-bold mb-2">
                         {review.title}
                       </DialogTitle>
-                      <DialogDescription className="text-lg">
+                      <DialogDescription className="text-sm">
                         {review.description}
                       </DialogDescription>
                     </DialogHeader>
@@ -151,7 +151,7 @@ function Years() {
                         href={`/year/${review?.slug?.current}`}
                         className="mt-4"
                       >
-                        <Button className="w-full">Read More</Button>
+                        <Button className="w-full">Go to review</Button>
                       </Link>
                     )}
                   </div>

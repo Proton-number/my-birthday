@@ -4,6 +4,7 @@ import { sanityStore } from "@/Store/sanityStore";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
 import { PortableText } from "@portabletext/react";
+import FloatingButton from "@/components/FloatingButton";
 
 export default function Page() {
   const { yearId } = useParams();
@@ -36,6 +37,8 @@ export default function Page() {
       <div className="prose max-w-prose">
         <PortableText value={singleReview.body} />
       </div>
+
+      <FloatingButton />
     </div>
   );
 }
