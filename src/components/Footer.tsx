@@ -76,13 +76,15 @@ function Footer() {
           <div className="space-y-4">
             <h1 className="font-serif text-xl font-medium">CONTACT ME:</h1>
             <div className="space-y-4">
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <Mail className="h-4 w-4" />
-                <CenterUnderline
-                  label="favouradebimpe63@gmail.com"
-                  className="font-serif"
-                />
-              </div>
+              <a href="mailto:favouradebimpe63@gmail.com">
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Mail className="h-4 w-4" />
+                  <CenterUnderline
+                    label="favouradebimpe63@gmail.com"
+                    className="font-serif"
+                  />
+                </div>
+              </a>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="h-4 w-4" />
                 <p className="font-serif">Call +2348125813782</p>
