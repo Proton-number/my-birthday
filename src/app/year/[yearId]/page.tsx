@@ -27,14 +27,20 @@ export default function Page() {
   if (!singleReview) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
-        <p>Loading...</p>
+        <div className="typing-indicator">
+          <div className="typing-circle"></div>
+          <div className="typing-circle"></div>
+          <div className="typing-circle"></div>
+          <div className="typing-shadow"></div>
+          <div className="typing-shadow"></div>
+          <div className="typing-shadow"></div>
+        </div>
       </div>
     );
   }
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      <h1 className="text-2xl font-bold">{singleReview?.title}</h1>
-      <div className="prose max-w-prose">
+    <div className="min-h-screen flex flex-col  p-10 items-justify relative ">
+      <div className="max-w-4xl mx-auto font-mono pb-8">
         <PortableText value={singleReview.body} />
       </div>
 

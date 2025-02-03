@@ -40,7 +40,7 @@ export default function FloatingButton() {
             duration: 0.3,
             ease: "easeInOut",
           }}
-          className="fixed right-6"
+          className="absolute bottom-6 right-6"
         >
           <Button onClick={scrollToTop} size="icon">
             <ChevronUp />

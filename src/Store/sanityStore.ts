@@ -77,6 +77,7 @@ interface SanityStore {
   singleReview: Reviews | null;
   fetchSingleReview: (yearId: string) => Promise<void>;
 }
+
 export const sanityStore = create<SanityStore>((set) => ({
   error: null,
   reviews: null,

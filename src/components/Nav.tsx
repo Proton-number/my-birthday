@@ -7,7 +7,7 @@ export default function Nav() {
   return (
     <div>
       <nav className="flex justify-between  p-4">
-        <h2>Adebimpe Favour</h2>
+        <h2 className="font-mono font-bold">Adebimpe Favour</h2>
 
         <div className="flex items-center space-x-6">
           {[

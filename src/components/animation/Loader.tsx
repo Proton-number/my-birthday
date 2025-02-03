@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion"; // Changed from motion/react
 import { useState, useEffect } from "react";
 
 interface LoadingProps {
@@ -21,7 +21,10 @@ function Loader({ children }: LoadingProps) {
   if (loading) {
     return (
       <motion.div className="flex justify-center items-center h-screen">
-        <h3>load....</h3>
+        '
+        <div className="loader">
+          <div className="circle"></div>
+        </div>
       </motion.div>
     );
   }
