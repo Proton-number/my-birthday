@@ -1,6 +1,16 @@
 import sanityClient from "@/Client";
 import { create } from "zustand";
 
+interface Reviews {
+  title: string;
+  description: string;
+  slug: {
+    current: string;
+  };
+  mainImage?: Image;
+  body: PortableTextContent[];
+  _id: string;
+}
 
 interface SanityStore {
   error: null | string;

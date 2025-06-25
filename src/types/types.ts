@@ -60,15 +60,6 @@ interface PortableTextBlock {
 // Main content types
 type PortableTextContent = PortableTextBlock | PortableTextImage;
 
-interface Reviews {
-  title: string;
-  description: string;
-  slug: {
-    current: string;
-  };
-  mainImage?: Image;
-  body: PortableTextContent[];
-  _id: string;
-}
+
 
 
