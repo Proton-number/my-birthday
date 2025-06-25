@@ -1,9 +1,4 @@
-interface Birthday {
-  formattedDate: string;
-  formattedTime: string;
-  formattedYear: string;
-  updateFormattedDate: () => void;
-}
+
 
 // for sanity
 
@@ -76,10 +71,4 @@ interface Reviews {
   _id: string;
 }
 
-interface SanityStore {
-  error: null | string;
-  reviews: Array<Reviews> | null;
-  fetchReviews: () => Promise<void>;
-  singleReview: Reviews | null;
-  fetchSingleReview: (yearId: string) => Promise<void>;
-}
+

@@ -1,6 +1,12 @@
 import { create } from "zustand";
 import { format } from "date-fns";
 
+interface Birthday {
+  formattedDate: string;
+  formattedTime: string;
+  formattedYear: string;
+  updateFormattedDate: () => void;
+}
 
 export const birthdayStore = create<Birthday>((set) => ({
   formattedDate: "",
@@ -11,7 +17,7 @@ export const birthdayStore = create<Birthday>((set) => ({
     set(() => ({
       formattedDate: format(now, "EEEE, MMMM do"),
       formattedTime: format(now, "h:mm a"),
-      formattedYear: format(now, "yyyy")
+      formattedYear: format(now, "yyyy"),
     }));
   },
 }));

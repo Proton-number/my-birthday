@@ -1,6 +1,15 @@
 import sanityClient from "@/Client";
 import { create } from "zustand";
 
+
+interface SanityStore {
+  error: null | string;
+  reviews: Array<Reviews> | null;
+  fetchReviews: () => Promise<void>;
+  singleReview: Reviews | null;
+  fetchSingleReview: (yearId: string) => Promise<void>;
+}
+
 export const sanityStore = create<SanityStore>((set) => ({
   error: null,
   reviews: null,
