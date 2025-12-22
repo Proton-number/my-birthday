@@ -4,11 +4,13 @@ import Year from "./Year";
 import { Metadata } from "next";
 
 type Props = {
-  params: { yearId: string };
+  params: Promise<{ yearId: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const review = await fetchReview(params.yearId);
+  const { yearId } = await params;
+
+  const review = await fetchReview(yearId);
 
   return {
     title: review?.title || "Year Review",
@@ -24,6 +26,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function page() {
+export default function Page() {
   return <Year />;
 }
