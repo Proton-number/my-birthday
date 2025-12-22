@@ -1,50 +1,29 @@
-"use client";
+import { fetchReview } from "@/lib/fetchReview";
+import Year from "./Year";
 
-import { sanityStore } from "@/Store/sanityStore";
-import { useParams } from "next/navigation";
-import { useEffect } from "react";
-import { PortableText } from "@portabletext/react";
-import FloatingButton from "@/components/FloatingButton";
+import { Metadata } from "next";
 
-export default function Page() {
-  const { yearId } = useParams();
-  const { singleReview, fetchSingleReview, error } = sanityStore();
+type Props = {
+  params: { yearId: string };
+};
 
-  useEffect(() => {
-    if (yearId && typeof yearId === "string") {
-      fetchSingleReview(yearId);
-    }
-  }, [yearId, fetchSingleReview]);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const review = await fetchReview(params.yearId);
 
-  if (error) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <p className="text-red-500">{error}</p>
-      </div>
-    );
-  }
+  return {
+    title: review?.title || "Year Review",
+    description: review?.description || "A year in review",
+    openGraph: {
+      title: review?.title || "Year Review",
+      description: review?.description || "A year in review",
+      images: [review?.mainImage?.asset?.url || "/default-image.jpg"],
+    },
+    twitter: {
+      card: "summary_large_image",
+    },
+  };
+}
 
-  if (!singleReview) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <div className="typing-indicator">
-          <div className="typing-circle"></div>
-          <div className="typing-circle"></div>
-          <div className="typing-circle"></div>
-          <div className="typing-shadow"></div>
-          <div className="typing-shadow"></div>
-          <div className="typing-shadow"></div>
-        </div>
-      </div>
-    );
-  }
-  return (
-    <div className="min-h-screen flex flex-col  p-10 items-justify relative ">
-      <div className="max-w-4xl mx-auto font-mono pb-8">
-        <PortableText value={singleReview.body} />
-      </div>
-
-      <FloatingButton />
-    </div>
-  );
+export default function page() {
+  return <Year />;
 }
