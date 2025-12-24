@@ -18,10 +18,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: review?.title || "Year Review",
       description: review?.description || "A year in review",
-      images: [review?.mainImage?.asset?.url || "/default-image.jpg"],
+      images: [
+        {
+          url: review?.mainImage?.asset?.url || "/default-image.jpg",
+          width: 800,
+          height: 600,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
+      title: review?.title || "Year Review",
+      description: review?.description || "A year in review",
+      images: [
+        {
+          url: review?.mainImage?.asset?.url || "/default-image.jpg",
+          width: 800,
+          height: 600,
+        },
+      ],
     },
   };
 }

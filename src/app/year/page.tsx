@@ -112,7 +112,7 @@ function Years() {
 
   return (
     <div className="min-h-screen p-8">
-      <div className="max-w-7xl mx-auto border-2 border-gray-300 rounded-lg min-h-[80vh] p-8">
+      <div className="max-w-5xl mx-auto border-2 border-gray-300 rounded-lg min-h-[80vh] p-8">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {sortedReviews.map((review) => (
             <Dialog key={review?.slug?.current}>
