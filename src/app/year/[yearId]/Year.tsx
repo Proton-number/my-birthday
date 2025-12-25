@@ -41,7 +41,16 @@ export default function Year() {
   return (
     <div className="min-h-screen flex flex-col  p-10 items-justify relative ">
       <div className="max-w-2xl mx-auto font-mono pb-8">
-        <PortableText value={singleReview.body} />
+        <PortableText
+          value={singleReview.body}
+          components={{
+            block: {
+              normal: ({ children }) => (
+                <p className="leading-relaxed mb-5">{children}</p>
+              ),
+            },
+          }}
+        />
       </div>
 
       <FloatingButton />
