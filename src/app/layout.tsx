@@ -37,7 +37,7 @@ export default function RootLayout({
             <Nav />
             {children}
           </div>
-          <div className=" dark:bg-neutral-900  sticky bottom-0 z-0">
+          <div className=" dark:bg-neutral-900   sticky bottom-0 z-0">
             <Footer />
           </div>
         </Loader>

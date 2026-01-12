@@ -131,13 +131,9 @@ export const sanityStore = create<SanityStore>((set) => ({
           error: "No review found for the provided ID",
         });
       }
-      //   if (data[0]?.title) {
-      //     document.title = data[0].title;
-      //   }
     } catch (error) {
       console.error("Error fetching single review:", error);
       set({ singleReview: null, error: "Failed to fetch single review" });
     }
   },
 }));
-

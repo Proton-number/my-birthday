@@ -2,19 +2,13 @@
 import { Mail, Phone, Sparkles, Clock } from "lucide-react";
 import { Separator } from "./ui/separator";
 import CenterUnderline from "./animation/CenterUnderline ";
-import { birthdayStore } from "@/Store/birthdayStore";
-import { useEffect } from "react";
 import { motion } from "motion/react";
+import { format } from "date-fns";
 
 function Footer() {
-  const { formattedDate, formattedTime, formattedYear, updateFormattedDate } =
-    birthdayStore();
-
-  useEffect(() => {
-    updateFormattedDate(); // Update immediately
-    const timer = setInterval(updateFormattedDate, 1000);
-    return () => clearInterval(timer);
-  }, [updateFormattedDate]);
+  const time = format(new Date(), "HH:mm");
+  const date = format(new Date(), "MMM dd, yyyy");
+  const year = format(new Date(), "yyyy");
 
   return (
     <footer className=" min-h-screen py-32 px-14 bg-[#f1e6e0] ">
@@ -43,8 +37,8 @@ function Footer() {
             <div className="space-y-2 text-muted-foreground">
               <div className="flex items-center gap-2 font-serif">
                 <Clock className="h-4 w-4" />
-                <p>{formattedDate}</p>
-                <p className="font-serif pl-6">{formattedTime}</p>
+                <time>{date}</time>
+                <p className="font-serif pl-6">{time}</p>
               </div>
             </div>
           </div>
@@ -98,7 +92,7 @@ function Footer() {
 
           <div className="flex justify-between">
             <h1 className="text-muted-foreground text-sm">
-              © {formattedYear} Adebimpe Favour. All Rights Reserved.
+              © {year} Adebimpe Favour. All Rights Reserved.
             </h1>
             <Sparkles className="h-6 w-6 text-primary" />
           </div>
