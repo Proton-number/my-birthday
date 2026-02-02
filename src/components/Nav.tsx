@@ -2,12 +2,15 @@
 
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 export default function Nav() {
   return (
     <div>
       <nav className="flex justify-between  p-4">
-        <h2 className="font-mono font-bold">Adebimpe Favour</h2>
+        <Link href="/">
+          <h2 className="font-mono font-bold">Adebimpe Favour</h2>
+        </Link>
 
         <div className="flex items-center space-x-6">
           {[
