@@ -1,5 +1,5 @@
-import { fetchReview } from "@/lib/fetchReview";
 import Year from "./Year";
+import sanityClient from "@/Client";
 
 import { Metadata } from "next";
 
@@ -9,8 +9,14 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { yearId } = await params;
-
-  const review = await fetchReview(yearId);
+  const query = `*[_type == "post" && slug.current == $slug][0]{
+    title,
+    description,
+    mainImage{
+      asset->{ url }
+    }
+  }`;
+  const review = await sanityClient.fetch(query, { slug: yearId });
 
   return {
     title: review?.title || "Year Review",
